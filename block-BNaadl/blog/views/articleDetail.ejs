@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <div>
+        <h1><%= article.title %></h1>
+        <p><%= article.description %></p>
+        <p><%= article.tags %></p>
+        <p><%= article.author %></p>
+        <a href="/article/<%= article.id%>/edit">Edit</a>
+        <a href="/article/<%= article.id%>/delete">Delete</a>
+    </div>
+</body>
+</html>
