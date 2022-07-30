@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+
+<div class="xl:container bg-white p-4"></div>
+    <h1 class="text-gray-500 text-center m-3">All Articles</h1>
+    <% if ( articles.length ){ %>
+    <% articles.forEach((article)=>{ %>
+        <section class="container mx-auto -2">
+            <div class="mb-3">
+                <h2 class="text-blue-400">
+                    <%= article.title %>
+                </h2>
+                <a href="/blogs/<%= article.id %>/detail"><button>detial</button></a>
+            </div>
+        </section>
+    <% }) %>
+    <% } else { %>
+        <h2 class="text-blue-500 text-center">No Article Present</h2>
+    <% } %>
+</div>
+
+</body>
+</html>
