@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+<ul>
+    <li><%= articles.title %></li> 
+    <ul>
+        <li><%= articles.description %></li>
+        <li><%= articles.tags %></li>
+        <li><%= articles.author %></li>
+        <li><%= articles.likes %></li>
+    </ul>
+    <a href="/blogs/<%= articles.id %>/like"><button>like</button></a>
+    <a href="/blogs/<%= articles.id %>/dislike"><button>dislike</button></a>
+    <a href="/blogs/<%= articles.id %>/edit"><button>edit</button></a>
+    <a href="/blogs/<%= articles.id %>/delete"><button>delete</button></a>
+</ul>
+
+<div>
+    <form action="/blogs/<%= articles.id %>/comments" method="POST">
+        <textarea rows="6" cols="40" name="content" placeholder="enter your comment">
+        </textarea><br>
+            <input type="submit" value="ADD COMMENT">
+    </form>
+</div>
+
+
+
+        <% comments.forEach(comment=>{ %>
+        <div>
+            <ul>
+                <li><%= comment.content %></li>
+                <li> likes: <%= comment.likes %> </li>
+                <span><a href="/comments/<%= comment.id %>/like"><button>like</button></a></li></span>
+                <span><a href="/comments/<%= comment.id %>dislike"><button>dislike</button></a></li></span>
+                <span><a href="/comments/<%= comment.id %>/edit"><button>edit</button></a></li></span>
+                <span><a href="/comments/<%= comment.id %>/delete"><button>delete</button></a></li></span>
+            </ul>
+        </div>
+        <% }) %>
+
+
+</body>
+</html>
