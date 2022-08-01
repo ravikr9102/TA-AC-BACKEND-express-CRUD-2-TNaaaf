@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= article.title %></h1>
+    <h2><%= article.author %></h2>
+    <% article.tags.forEach(t => { %>
+        <span><%= t %></span>
+   <% }) %>
+   <p><%= article.description %></p>
+   <h3><%= article.likes ? article.likes: 0 %></h3>
+   <a href="/article/<%= article.id %>/likes">Like</a>
+   <a href="/article/<%= article.id %>/Dislikes">DisLike</a>
+   <a href="/article/<%= article.id %>/edit">Edit</a>
+   <a href="/article/<%= article.id %>/delete">Delete</a>
+   <div>
+    <form action="/article/<%= article.id %>/comment" method="POST">
+        <textarea name="text" rows="3" placeholder="Add Comment..."></textarea>
+        <input type="text" name="author" placeholder="Author">
+        <button>Add Comment</button>
+    </form>
+   </div>
+<div>
+    <h2>Comments</h2>
+    <% article.comment.forEach(comment => { %>
+        <p><%= comment.text %></p>
+        <p><%= comment.author %></p>
+        <a href="/comment/<%= comment.id %>/edit">Edit</a>
+        <a href="/comment/<%= comment.id %>/delete">Delete</a>
+   <% }) %>
+</div>
+</body>
+</html>
